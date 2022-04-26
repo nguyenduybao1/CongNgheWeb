@@ -4,26 +4,7 @@ $(document).ready(function() {
    $("#btn2").click(function(){
        $("#myModal").modal();
    });
-   function KiemTraSTT(){
-    var mauKT=/^\d*$/;
-    if ($("#Stt").val()=="") {
-     $("#tbStt").html("Không để trống");
-     return false;
-    }
-    if(!mauKT.test($("#Stt").val())){
-     $("#tbStt").html("Dùng số từ 1 đến 100");
-      return true;
-    }else{
-      var soTT=$("#Stt").val();
-      if (soTT<1||soTT>100) {
-          $("#tbStt").html("Từ 1 đến 100");
-      }else{
-         $("#tbStt").html("*");
-         return true;
-      }
-  }
-  
-   }
+
    function kiemTraTen(){
        var i=1;
        let mauKT=/([A-Z]{1}[a-z]+)((\s{1}[A-Z]{1}[a-z]+){1,})$/;
@@ -112,6 +93,7 @@ $("#SDT").blur(kiemTraSDT);
 $("#Save").click(function(){
     if (kiemTraTen()==true && kiemTraSoAo()==true && kiemTraSDT()==true && kiemTraNTT()==true && kiemTraDiaChi()==true) {
         row="<tr>";
+        row+="<th>" + (i++)+"</th>";
         row+="<th>" + $("#Name").val() +"</th>";
         row+="<th>" + $("#Ao").val() +"</th>";
         row+="<th>" + $("#DC").val() +"</th>";
